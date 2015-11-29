@@ -1,8 +1,9 @@
 var express = require("express");
+var router = express.Router();
 
 var Headline = require("../models/headline");
 
-var router = express.Router();
+var ctrlHeadline= require('../controllers/headline.controller');
 
 // router.use(function(req, res, next) {
 //     // res.locals.currentUser = req.user;
@@ -19,5 +20,7 @@ router.get("/", function(req, res, next) {
         res.render("index", { headlines: headlines });
     });
 });
+
+router.get('/headlines', ctrlHeadline.headlinesCreate);
 
 module.exports = router;
