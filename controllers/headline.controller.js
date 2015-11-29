@@ -62,4 +62,4 @@ setInterval(function(){
       //console.log(joined);
       //console.log(createHeadline);
   });
-}, 1000*60*20); //update every hour
+}, 10000); //update every hour
