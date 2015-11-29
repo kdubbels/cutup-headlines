@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var gracefulShutdown;
 var dbUri = "mongodb://localhost:27017/cutup-headlines";
 if  (process.env.NODE_ENV === 'production') {
-	dbUri = 'mongodb://heroku_4ck42spc:i5lgl9ejtr1277t8egvqs9hfse@ds059804.mongolab.com:59804/heroku_4ck42spc';
+	dbUri = 'mongodb://heroku_c4kt49qf:hj7ufpumgokdfkkmr3d36fmg8q@ds059654.mongolab.com:59654/heroku_c4kt49qf';
 }
 mongoose.connect(dbUri);
 
