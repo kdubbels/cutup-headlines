@@ -8,8 +8,35 @@ function shuffle(o){
     return o;
 }
 
-var requestHeadlines = function(req, res) {
-  var headlines_array = [];
+var headlines_array = [];
+
+// request('http://www.nytimes.com', function (error, response, html) {
+//     if (!error && response.statusCode == 200) {
+//        var $ = cheerio.load(html);
+//        $('h2.story-heading').each(function(i, element) {
+//            var headline = $(element).text();
+//            var trimmed = headline.trim();
+//            var goodQuotes = trimmed.replace(/[\u2018\u2019]/g, "'");
+//            var splitted = goodQuotes.split(" ");
+//            for (var i = 0; i < splitted.length; i++) {
+//             headlines_array.push(splitted[i]);
+//            }
+//        });
+//     }
+//     var shuffled = shuffle(headlines_array);
+//     var joined = shuffled.join(' ');
+//     var createHeadline = new Headline({
+//       headline: joined,
+//       createdAt: new Date().getTime()
+//     });
+//     createHeadline.save(function (err, createHeadline) {
+//       if (err) return console.error(err);
+//     });
+//     console.log(joined);
+//     console.log(createHeadline);
+// });
+
+setInterval(function(){
   request('http://www.nytimes.com', function (error, response, html) {
       if (!error && response.statusCode == 200) {
          var $ = cheerio.load(html);
@@ -23,24 +50,16 @@ var requestHeadlines = function(req, res) {
              }
          });
       }
-      // TODO: might need to move shuffled, joined and return joined here???
+      var shuffled = shuffle(headlines_array);
+      var joined = shuffled.join(' ');
+      var createHeadline = new Headline({
+        headline: joined,
+        createdAt: new Date().getTime()
+      });
+      createHeadline.save(function (err, createHeadline) {
+        if (err) return console.error(err);
+      });
+      console.log(joined);
+      console.log(createHeadline);
   });
-  var shuffled = shuffle(headlines_array);
-  var joined = shuffled.join(' ');
-  return joined;
-};
-
-module.exports.headlinesCreate = function(req, res) {
-  Headline.create({
-    headline: joined,
-    date: Date.now(),
-      }, function(err, headline) {
-    if (err) {
-      console.log(err);
-      sendJSONresponse(res, 400, err);
-    } else {
-      console.log(headline);
-      sendJSONresponse(res, 201, headline);
-    }
-  });
-};
+}, 10000); //update every hour

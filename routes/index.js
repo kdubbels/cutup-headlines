@@ -21,6 +21,4 @@ router.get("/", function(req, res, next) {
     });
 });
 
-router.get('/headlines', ctrlHeadline.headlinesCreate);
-
 module.exports = router;

@@ -1,9 +1,7 @@
-hello world
-
-maybe this works...?
-
 <% headlines.forEach(function(headline) { %>
-      <%= headline %>
-<% }) %>
+	
+	<h2><%= headline.createdAt %></h2>
+    
+    <p><%= headline.headline %></p>
 
-????
+<% }) %>
