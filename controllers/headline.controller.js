@@ -59,7 +59,7 @@ setInterval(function(){
       createHeadline.save(function (err, createHeadline) {
         if (err) return console.error(err);
       });
-      console.log(joined);
-      console.log(createHeadline);
+      //console.log(joined);
+      //console.log(createHeadline);
   });
-}, 10000); //update every hour
+}, 1000*60*20); //update every hour
