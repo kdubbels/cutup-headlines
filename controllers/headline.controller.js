@@ -66,4 +66,4 @@ setInterval(function(){
       headlines_array.length = 0;
       console.log("Array cleared.");
   });
-}, 1000 * 60 * 60); //update every hour
+}, 1800000); //update every hour
