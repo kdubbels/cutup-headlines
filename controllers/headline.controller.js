@@ -57,9 +57,13 @@ setInterval(function(){
         createdAt: new Date().getTime()
       });
       createHeadline.save(function (err, createHeadline) {
-        if (err) return console.error(err);
+        if (err) {
+          return console.error(err);
+        } else {
+          console.log("Headline added to db.");
+        }
       });
-      //console.log(joined);
-      //console.log(createHeadline);
+      headlines_array.length = 0;
+      console.log("Array cleared.");
   });
-}, 1000 * 60 * 20); //update every hour
+}, 1000 * 60 * 60); //update every hour
