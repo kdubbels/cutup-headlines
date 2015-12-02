@@ -8,6 +8,7 @@ mongoose.connect(dbUri);
 
 mongoose.connection.on('connected', function() {
 	console.log('Mongoose connected to ' + dbUri);
+	//create collection and populate it
 });
 
 mongoose.connection.on('error', function(err) {
