@@ -35,7 +35,7 @@ var headlines_array = [];
 //     console.log(joined);
 //     console.log(createHeadline);
 // });
-
+/*
 setInterval(function(){
   request('http://www.nytimes.com', function (error, response, html) {
       if (!error && response.statusCode == 200) {
@@ -67,3 +67,4 @@ setInterval(function(){
       console.log("Array cleared.");
   });
 }, 10000); //update every hour
+*/

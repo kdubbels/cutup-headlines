@@ -8,6 +8,14 @@ var app = require('../app');
 var debug = require('debug')('dada-headlines:server');
 var http = require('http');
 
+// SOCKET STUFF KDKDKD
+var io = require('socket.io')(server);
+
+app.get('/', function (req, res) {
+  res.sendfile(__dirname + '/index.html');
+});
+
+
 /**
  * Get port from environment and store in Express.
  */
@@ -20,7 +28,7 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-
+console.log(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
